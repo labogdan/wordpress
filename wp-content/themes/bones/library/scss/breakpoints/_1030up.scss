@@ -1,0 +1,83 @@
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Desktop Stylsheet
+
+This is the desktop size. It's larger than an iPad so it will only
+be seen on the Desktop.
+
+******************************************************************/
+
+.wrap {
+  width: 100%;
+}
+
+div {
+  .constrainWidth01 {
+    max-width : 1000px;
+  }
+}
+
+.nexalightXLblack {
+    font-size: em(50px);
+}
+
+.nexalightLblack {
+    font-size: em(40px);
+}
+
+.centeredForMobile {
+  text-align : left;
+}
+
+.hideMobile {
+  display : block;
+}
+
+.hideTablet {
+  display : block;
+}
+
+
+#LandingContainer {
+  width: 1000px ;
+  margin-left: auto ;
+  margin-right: auto ;
+}
+#priceHolder  {
+  width: 300px ;
+  margin-left: auto ;
+  margin-right: auto ;
+}
+.goldLine {
+       position : relative;
+       top : 30px;
+       left : 20px;
+       width : 94px;
+       border-top : 1px #ff9e15 solid;
+       transform : rotate(-15deg);
+       height:0px;
+}
+.row1000 {
+       width:1000px;
+}
+.LandingBigPrice     {   
+    font-size: 40px;
+    color: #65646a;
+    font-weight: bold;
+    line-height:64px;
+    }
+.imagerow2    {
+       width:330px;
+       height:200px;
+       float:left;
+}     
+.imagerow6    {
+       width:250px;
+       height:80px;
+       float:left;
+}
+.seeDevices   {
+       font-family: nexaLight;font-size: 38px;
+}
