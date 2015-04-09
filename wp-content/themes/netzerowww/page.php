@@ -18,7 +18,7 @@ get_header(); ?>
 
 <?php
 
-include 'page-includes.php';
+include 'includes/home-comp-01.php';
 
 ?>			
 			
