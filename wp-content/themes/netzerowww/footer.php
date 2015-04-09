@@ -11,7 +11,7 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
+		<div class="site-info"> <?php /*
 			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'netzerowww' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'netzerowww' ), 'WordPress' ); ?></a>
 			<span class="sep"> | </span>
 			<?php /* printf( __( 'Theme: %1$s by %2$s.', 'netzerowww' ), 'NetZeroWWW', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); */ ?>
