@@ -1,13 +1,58 @@
 <style>
-	#row4 div[class^="col-"] {
+	#row5 div[class^="col-"] {
 		min-height : 40px;
-		background : #cecece;
+		background : #f1f1f1;
 		border : 1px solid red;
 	}
 	
 	.col-centered{
 		float: none;
 		margin: 0 auto;
+	}
+	
+	.m-top-10 {
+		margin-top : 10px;
+	}
+	
+	.height70 {
+		height : 70px;
+	}
+	
+	.gray1 {
+		color : #808184;
+	}
+	
+	.aqua {
+		font-size : 2rem;
+		font-weight : bold;
+		color: #5adbc8
+	}
+	
+	.orange {
+		color : #ff6a4d;
+		font-weight : bold;
+		font-size : 3.8rem;
+	}
+	
+	@media screen and (max-width : 767px) {
+		.orange {
+			font-size : 2rem;
+		}
+	}
+	
+	ul  {
+		margin-top : 10px;
+		padding-left: 0;
+		margin-left : 1.4em;
+		list-style-position: none;
+	}
+	
+	ul li {
+		margin-top : 5px;
+	}
+	
+	hr {
+		border-bottom : 1px #e5e6e7 solid;
 	}
 	
 	div[id^="row"] h1 {
@@ -21,6 +66,18 @@
 		color : white;
 		font-size : 1.5rem;
 		font-weight: normal;
+	}
+	
+	@media screen and (max-width: 767px) {
+		div[id^="row"] h1 {
+			font-size : 2.8rem;
+			text-transform : uppercase;
+			margin-top : 50px;
+		}
+		
+		div[id^="row"] h2 {
+			font-size : 1.3rem;
+		}
 	}
 	
 	.nz-logo {
@@ -65,11 +122,11 @@
 		#row1 h1 {
 			font-size : 3rem;
 		}
-		#row1 .margin-large {
-			margin-top : 100px;
-		}
-		#row1 .margin-small {
+		.margin-large {
 			margin-top : 50px;
+		}
+		.margin-small {
+			margin-top : 25px;
 		}
 		#row1 h2 {
 			font-size : 1.5rem;
@@ -85,7 +142,7 @@
 	
 	@media screen and (max-width: 767px) {
 		#row2 {
-			height : 200px;
+			display : none;
 		}
 	}
 	.navbar-default {
@@ -125,6 +182,12 @@
 		height : 352px;
 	}
 	
+	@media screen and (max-width: 767px) {
+		#row3 {
+			height : 252px;
+		}
+	}
+	
 	#row4 {
 		background : white;
 		height : 400px;
@@ -140,6 +203,20 @@
 		margin-top : -25px;
 	}
 
+	.btn-primary {
+		background : #5adbc8;
+		border : none;
+		width : 100%;
+		height : 100%;
+	}
+	
+	.btn-primary:hover {
+		background : #6bebe9;
+	}
+	
+	@media screen and (max-width: 767px) {
+	}
+	
 </style>
 
 
@@ -182,15 +259,61 @@
 <div id="row4" class="row">
 	<div class="arrow-down col-md-1 col-centered"></div>
 	
-	<div class="col-md-4 col-md-offset-2 margin-small">
+	<div class="col-md-offset-3">
 		<div class="row">
-			<div class="col-xs-4"><img src='/wp-includes/images/NetZero/iphone.png'></div>
-			<div class="col-xs-8"></div>
-		</div>
-		<div class="row">
-			<div class="col-xs-4">$199.95</div>
-			<div class="col-xs-8"><button type="button" class="btn btn-default">Learn More</button></div>
-		</div>
+			<div class="col-md-4 margin-small">
+				<div class="row">
+					<div class="col-xs-4"><img src='/wp-includes/images/NetZero/iphone.png' class='m-top-10'></div>
+					<div class="col-xs-8">
+						<span class="gray1">Apple</span><br />
+						<span class="aqua">iPhone&reg; 4S</span>
+						<hr />
+						<span class="gray1">
+							<strong>iPhone 4S Specs:</strong><br />
+							One of the most popular versions of the iPhone, the iPhone 4s features a beautiful, 3.5" Retina display, 
+							an 8-megapixel iSight camera with 1080p HD video recording, an A5 chip and more.
+							<ul>
+								<li>Siri - Your own intelligent personal assistant</li>
+								<li>1080p HD video stabilized video recording at 30 fps</li>
+								<li>8 megapixel camera with LED flash</li>
+							</ul>
+						</span> 
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-4 orange">$199.95</div>
+					<div class="col-xs-8 height70"><button type="button" class="btn btn-primary">Learn More</button></div>
+				</div>
+			</div>
+			
+			<div class="col-md-1"></div>
+			
+			<div class="col-md-4 margin-small">
+				<div class="row">
+					<div class="col-xs-4"><img src='/wp-includes/images/NetZero/iphone.png' class='m-top-10'></div>
+					<div class="col-xs-8">
+						<span class="gray1">Apple</span><br />
+						<span class="aqua">iPhone&reg; 4S</span>
+						<hr />
+						<span class="gray1">
+							<strong>iPhone 4S Specs:</strong><br />
+							One of the most popular versions of the iPhone, the iPhone 4s features a beautiful, 3.5" Retina display, 
+							an 8-megapixel iSight camera with 1080p HD video recording, an A5 chip and more.
+							<ul>
+								<li>Siri - Your own intelligent personal assistant</li>
+								<li>1080p HD video stabilized video recording at 30 fps</li>
+								<li>8 megapixel camera with LED flash</li>
+							</ul>
+						</span> 
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-4 orange">$199.95</div>
+					<div class="col-xs-8 height70"><button type="button" class="btn btn-primary">Learn More</button></div>
+				</div>
+			</div>
 	</div>
+	</div>
+
 	
 </div>
