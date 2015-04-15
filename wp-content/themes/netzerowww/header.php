@@ -18,7 +18,7 @@
 <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> data-ng-app="httpExample">
 <div id="page" class="hfeed site">
 	
 	<?php /*

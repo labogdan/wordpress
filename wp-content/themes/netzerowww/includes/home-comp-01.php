@@ -86,24 +86,38 @@
 		height : 50px;
 	}
 	
+	#row-header {
+		background : #f8f5f4;
+		height : 70px;
+	}
+	
 	#row1 {
-		background : url('/wp-includes/images/NetZero/iStock_000047153614Large.jpg');
-		height : 1012px;
+		background : url('/wp-includes/images/NetZero/tile_01.png');
+		height : 500px;
 		background-size : cover;
 	}
 	
 	#row1 h1 {
-		font-size : 8rem;
+		font-size : 5rem;
 		text-transform : uppercase;
 		color : #41424a;
+		margin-top : 50px;
+		margin-bottom : 0px;
 	}
 
 	#row1 h2 {
-		font-size : 3.4rem;
+		font-size : 2rem;
 		color : #41424a;
 		font-weight: normal;
 	}
 	
+	#row1 .bigText {
+		font-size : 7rem;
+	}
+	
+	#row1 .plansFrom {
+		font-size : 2rem;
+	}
 	.margin-large {
 		margin-top : 250px;
 	}
@@ -204,14 +218,17 @@
 	}
 
 	.btn-primary {
-		background : #5adbc8;
+		background : #ff8a00;
 		border : none;
-		width : 100%;
-		height : 100%;
+		text-transform : uppercase;
+		padding-left : 2em;
+		padding-right : 2em;
 	}
 	
 	.btn-primary:hover {
-		background : #6bebe9;
+		background : #ff9b11;
+		border : none;
+
 	}
 	
 	@media screen and (max-width: 767px) {
@@ -219,21 +236,12 @@
 	
 </style>
 
-
-<div id="row1" class="row">
-	<div class="nz-logo col-md-2 col-md-offset-2">
-	</div>
-	<div class="margin-large col-md-6 col-md-offset-3 text-center">
-		<h1>wireless done your way</h1>
-	</div>
-	<div class="margin-small col-md-6 col-md-offset-3 text-center">
-		<h2>Finally, a smart wireless service to match your smartphone.</h2>
-	</div>
-</div>
-
-<div id="row2" class="row">
+<div id="row-header" class="row">
 	<nav class="navbar navbar-default">
 	  <div class="container">
+	  	<div class="navbar-header">
+	  		<a class="navbar-brand nz-logo" href="#"></a>
+	  	</div>
 	  	<div class="collapse navbar-collapse">
 	  		<ul class="nav navbar-nav">
 	  			<li><a href="#"><strong>PHONES</strong></a></li>
@@ -247,6 +255,25 @@
 	  	</div>
 	  </div>
 	</nav>
+
+</div>
+
+<div id="row1" class="row">
+	
+	<div class="col-md-6 col-md-offset-1 text-left">
+		<h1>a great phone deserves a great plan.</h1>
+	</div>
+	<div class="col-md-6 col-md-offset-1 text-left">
+		<h2>What makes a good plan great? Flexibility. In addition to offering reliable nationwide, talk, text and data with 
+			no contracts or hidden fees, we offer you the flexibility to change your plan anytime.</h2>
+	</div>
+	<div class="clearfix"></div>
+	<div class="col-md-2 col-md-offset-3 text-center">
+		<span class="plansFrom">Plans From </span><br />
+		<span class="bigText">$8</span>
+		<br />
+		<button type="button" class="btn btn-primary">see all plans</button>
+	</div>
 </div>
 
 <div id="row3" class="row">

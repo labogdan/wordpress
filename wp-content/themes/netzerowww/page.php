@@ -18,7 +18,7 @@ get_header(); ?>
 
 <?php
 
-include 'includes/home-comp-01.php';
+include 'includes/json-p.php';
 
 ?>			
 			
