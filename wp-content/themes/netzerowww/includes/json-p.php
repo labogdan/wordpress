@@ -1,89 +1,106 @@
-	<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/ng-showDevices.js"></script>
+<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/ng-showDevices.js"></script>
 
-	<div data-ng-app="deviceList">
-
-            <div ng-controller="FetchController">
-                
-                <div>{{loading}}</div>
-                	
-                
-                <input type="text" ng-model="coolVar" size="80" />
-                
-                <div>
-                	{{coolVar}}
-                </div>
-                <select ng-model="method" aria-label="Request method">
-                  <option>GET</option>
-                  <option>JSONP</option>
-                </select>
-                <input type="text" ng-model="url" size="80" aria-label="URL" />
-                <button id="fetchbtn" ng-click="fetch()">fetch</button><br>
-                 <button id="samplejsonpbtn"
-                  ng-click="updateModel('JSONP',
-                                'http://www.devlocal.netzero.net/start/showAllDevices.do?wls_rsf=1&rtype=jsonp&callback=JSON_CALLBACK')">
-                  Sample JSONP
-                </button>
-              
-
-			<hr />
-			
-			
-	        <ul ng-repeat="devices in data">
-              	<li ng-repeat="device in devices"><div ng-repeat="attr in device">{{attr}}</div></li>
-              </ul>
-
-<div class="row" ng-repeat="devices in data">
+<style>
 	
-	<div class="col-md-offset-2 col-md-8" style="border:1px blue solid;">
-		<div class="row">
-			<div class="col-md-6 margin-small" ng-repeat="device in devices" style="border:1px red solid;">
+	.deviceName {
+		font-weight : bold;
+		font-size : 1.5rem;
+		text-transform: uppercase;
+		margin-top : 20px;
+	}
+	
+	.deviceText {
+		font-size : 1.2rem;
+		margin-top : 10px;
+	}
+	
+	.specialPrice {
+		color : #ff8f12;
+		font-size : 2.2rem;
+	}
+	
+	.originalPrice {
+	}
+	
+	.devicePrice {
+		margin-top : 30px;
+	}
+	
+	.buttonWrapper {
+		margin-top : 20px;
+	}
+
+	.fleft {
+		float : left;
+	}
+	
+	.btn-primary {
+		background : #c14d00;
+		text-transform: uppercase;
+		border : 2px #d47134 solid;
+	}
+	
+</style>
+
+<div data-ng-app="deviceList">
+
+	<div ng-controller="FetchController">
+                
+		<div>{{loading == false? 'all data loaded!':'loading...'}}</div>
+                	
+		<div class="row" ng-repeat="devices in data" ng-show="$index === 0">
+			
+			<div class="col-md-offset-2 col-md-9" style="border:1px blue solid;">
 				<div class="row">
-					<div class="col-xs-4"><img src='/wp-includes/images/NetZero/iphone.png' class='m-top-10'></div>
-					<div class="col-xs-8">
-						<span class="gray1">Apple</span><br />
-						<span class="aqua">{{device.name}}</span>
-						<hr />
-						<span class="gray1">
-							<strong>{{device.name}} Specs:</strong><br />
-							One of the most popular versions of the iPhone, the iPhone 4s features a beautiful, 3.5" Retina display, 
-							an 8-megapixel iSight camera with 1080p HD video recording, an A5 chip and more.
-							<ul>
-								<li>Siri - Your own intelligent personal assistant</li>
-								<li>1080p HD video stabilized video recording at 30 fps</li>
-								<li>8 megapixel camera with LED flash</li>
-							</ul>
-						</span> 
+					<div class="col-md-5 margin-small" ng-repeat-start="device in devices | orderBy: 'displayOrder'" style="border:1px red solid; margin-bottom: 70px;">
+						<div class="row">
+							<div class="col-xs-4"><img src='/wp-includes/images/NetZero/iphone.png' class='m-top-10'></div>
+							<div class="col-xs-8">
+								<div class="deviceName" ng-bind-html="device.shortName | to_trusted"></div>
+								
+								<div class="deviceText">
+									This fun, affordable smartphone packed with great features.
+								</div>
+								
+								<div class="devicePrice">
+									<div class="fleft specialPrice">{{device.specialPrice == 0.0?'FREE':'$' + device.specialPrice}}</div>
+									<div class="fleft originalPrice">${{device.price}}</div>
+								</div>
+								<br clear="all"/>
+								<div class="buttonWrapper">
+									<button type="button" class="btn btn-primary">add to cart</button>
+									Learn More >
+								</div>
+								 
+							</div>
+						</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-4 orange">$199.95</div>
-					<div class="col-xs-8 height70"><button type="button" class="btn btn-primary">Learn More</button></div>
+					<div ng-if="$index %2 != 0" class="clearfix"></div>
+					<div ng-repeat-end ng-if="$index %2 === 0" class="col-md-1"></div>
 				</div>
 			</div>
 			
-			<div class="col-md-1"></div>
-			
-			
-	</div>
-	</div>
-
-	
-</div>
-
-
+		</div>
               
-              <hr />
+        <hr />
               
               
               <pre>http status code: {{status}}</pre>
                 <pre>http response data: {{data}}</pre>
               
 
-			<hr />
+		<hr />
+			
+			
+			 <ol ng-repeat="devices in data">
+              	<li ng-repeat="device in devices">
+              		<ul>
+              			<div ng-repeat="attr in device">{{attr}}</div>
+              		</ul>
+              	</li>
+              </ol>
               
-              </div>
+	</div> <!-- /controller -->
              
        
-       </div>
-       
-      </div>
+</div> <!-- /app -->

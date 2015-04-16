@@ -20,6 +20,7 @@
 
 <body <?php body_class(); ?> >
 <div id="page" class="hfeed site">
+<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/ng-showDevices.js"></script>
 	
 	<?php /*
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'netzerowww' ); ?></a>

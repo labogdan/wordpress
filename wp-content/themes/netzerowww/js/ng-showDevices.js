@@ -1,9 +1,16 @@
-angular.module('deviceList', [])
+'use strict';
+
+angular.module('deviceList', [
+    'deviceList.controllers',
+    'deviceList.filters'
+]);
+
+angular.module('deviceList.controllers', [])
 .controller('FetchController', ['$scope', '$http', '$templateCache',
        function($scope, $http, $templateCache) {
             $scope.method = 'JSONP';
             //$scope.url = 'http://www.survivalhomesteading.com/api/get-phones.php?action=get_device_list_short_info&callback=JSON_CALLBACK';
-            $scope.url = 'http://www.devlocal.netzero.net/start/showAllDevices.do?wls_rsf=1&rtype=jsonp&callback=JSON_CALLBACK';
+            $scope.url = 'http://www.devlocal.netzero.net/start/showAllDevices.do?wls_rsf=1&wls_poc=hs&wls_pid=2&rtype=jsonp&callback=JSON_CALLBACK';
             
             $scope.loading = true;
             
@@ -28,3 +35,10 @@ angular.module('deviceList', [])
                 $scope.url = url;
     };
    }]);
+   
+angular.module('deviceList.filters', [])
+.filter('to_trusted', ['$sce', function ($sce){
+    return function (text) {
+        return $sce.trustAsHtml(text);
+    };
+}]);
