@@ -6,7 +6,7 @@ angular.module('deviceList', [
 ]);
 
 angular.module('deviceList.controllers', [])
-.controller('FetchController', ['$scope', '$http', '$templateCache',
+    .controller('FetchController', ['$scope', '$http', '$templateCache',
        function($scope, $http, $templateCache) {
             $scope.method = 'JSONP';
             //$scope.url = 'http://www.survivalhomesteading.com/api/get-phones.php?action=get_device_list_short_info&callback=JSON_CALLBACK';
@@ -34,11 +34,11 @@ angular.module('deviceList.controllers', [])
                 $scope.method = method;
                 $scope.url = url;
     };
-   }]);
+}]);
    
 angular.module('deviceList.filters', [])
-.filter('to_trusted', ['$sce', function ($sce){
-    return function (text) {
-        return $sce.trustAsHtml(text);
+    .filter('to_trusted', ['$sce', function ($sce){
+        return function (text) {
+            return $sce.trustAsHtml(text);
     };
 }]);

@@ -54,7 +54,7 @@
 				<div class="row">
 					<div class="col-md-5 margin-small" ng-repeat-start="device in devices | orderBy: 'displayOrder'" style="border:1px red solid; margin-bottom: 70px;">
 						<div class="row">
-							<div class="col-xs-4"><img src='/wp-includes/images/NetZero/iphone.png' class='m-top-10'></div>
+							<div class="col-xs-4"><img src='/wp-includes/images/NetZero/iphone.png' class='m-top-10 img-responsive'></div>
 							<div class="col-xs-8">
 								<div class="deviceName" ng-bind-html="device.shortName | to_trusted"></div>
 								
@@ -84,7 +84,7 @@
               
         <hr />
               
-              
+              <div style="height:25px; overflow: hidden;" onclick="if ($(this).data('expanded') == 'true') {$(this).css('height','auto').data('expanded','true')}else {$(this).css('height','25px;').data('expanded','false')}">
               <pre>http status code: {{status}}</pre>
                 <pre>http response data: {{data}}</pre>
               
@@ -99,7 +99,7 @@
               		</ul>
               	</li>
               </ol>
-              
+             </div> 
 	</div> <!-- /controller -->
              
        
