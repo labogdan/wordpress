@@ -18,7 +18,7 @@ get_header(); ?>
 
 <?php
 
-include 'includes/angular-tutorial.php';
+include 'includes/frontdoor.php';
 
 ?>			
 			

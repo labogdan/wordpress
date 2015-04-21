@@ -1,4 +1,8 @@
-<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/ng-showDevices.js"></script>
+<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/nzApp/nzApp.js"></script>
+<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/nzApp/nzApp.frontDoor.services.js"></script>
+<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/nzApp/nzApp.frontDoor.controllers.js"></script>
+<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/nzApp/nzApp.frontDoor.filters.js"></script>
+
 
 <style>
 a      {
@@ -89,6 +93,11 @@ a:focus, a:hover {
 .ff8f12       {
        color:#ff8f12;
 }
+#cartIco{
+	margin : 0px;
+	line-height:0.5;
+}
+
 .unlmtd       {
        font-wight:bold;
        font-size:1.286em;  
@@ -240,16 +249,35 @@ a:focus, a:hover {
 	.btn-primary {
 		background : #c14d00;
 		text-transform: uppercase;
-		border : 2px #d47134 solid;
+		border : none;
+		height : 40px;
 	}
+	
+	.btn-info {
+		background : #808080;
+		text-transform: uppercase;
+		border : none;
+		height : 40px;
+	}
+	
+	#shoppingCart .summary {
+		color : #c14d00;
+		text-transform : uppercase;
+		font-size : 2rem;
+	}
+	
+	#shoppingCart div {
+		color : #808080;
+	}
+	
 	
 </style>
 
-<div data-ng-app="deviceList">
+<div data-ng-app="frontDoor">
 
-	<div ng-controller="FetchController">
+	<div ng-controller="showAllDevices as showAllDevices">
                 
-		<div>{{loading == false? 'all data loaded!':'loading...'}}</div>
+		<div>{{showAllDevices.loading == false? 'all data loaded!':'loading...'}}</div>
                 	
 
 
@@ -265,9 +293,25 @@ a:focus, a:hover {
                   <li><a href="#"><strong>COVERAGE</strong></a></li>
                   <li><a href="#">ACCOUNT</a></li>
                   <li><a href="#">SUPPORT</a></li>
-                 
+                  <li><a href="#" data-toggle="dropdown"><span id="cartIco" class="glyphicon glyphicon-shopping-cart 5adbc8"></span></a>
+                  	<div id="shoppingCart" class="dropdown-menu" style="width : 300px;left : -200px;padding : 20px;">
+        				
+        				<div class="summary">SUMMARY</div>
+        				<hr />
+        				<div class="fleft">
+        					<div class="fLeft">{{showAllDevices.deviceName}}</div><div class="fLeft">{{showAllDevices.quantity}}</div><div class="fLeft">{{showAllDevices.price}}</div>
+        				</div>
+        				<hr />
+        				<div class="fleft">
+        					<div class="fLeft">{{showAllDevices.planName}}</div><div class="fLeft">{{showAllDevices.quantity}}</div><div class="fLeft">{{showAllDevices.price}}</div>
+        				</div>
+        				<hr />
+        				<button class="btn btn-info btn-block">VIEW CART</button>
+        				<button class="btn btn-primary btn-block">CHECKOUT</button>
+    				</div>
+                  </li>
            </ul>
-           <div class="5adbc8 active"><span class="glyphicon glyphicon-shopping-cart 5adbc8"> </span></div>
+           
            </div>
     </div>
 </div>
@@ -316,13 +360,13 @@ a:focus, a:hover {
 </div>
  
 
-		<div class="row" ng-repeat="devices in data" ng-show="$index === 0">
+		<div class="row" ng-repeat="devices in showAllDevices.data" ng-show="$index === 0">
 			
 			<div class="col-md-offset-2 col-md-9">
 				<div class="row">
 					<div class="col-md-5 margin-small" ng-repeat-start="device in devices | orderBy: 'displayOrder'" style="margin-bottom: 70px;">
 						<div class="row">
-							<div class="col-xs-4"><img src='/wp-includes/images/NetZero/{{device.offerId}}.png' class='m-top-10 img-responsive'>{{device.offerId}}</div>
+							<div class="col-xs-4"><img ng-src='{{device.offerId.length?"/wp-includes/images/NetZero/"+device.offerId+".png":"/wp-includes/images/NetZero/iphone.png"}}' class='m-top-10 img-responsive'>{{device.offerId}}</div>
 							<div class="col-xs-8">
 								<div class="deviceName" ng-bind-html="device.shortName | to_trusted"></div>
 								

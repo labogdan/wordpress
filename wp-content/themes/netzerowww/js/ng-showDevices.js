@@ -6,7 +6,7 @@ angular.module('deviceList', [
 ]);
 
 angular.module('deviceList.controllers', [])
-    .controller('FetchController', ['$scope', '$http', '$templateCache',
+    .controller('showAllDevices', ['$scope', '$http', '$templateCache',
        function($scope, $http, $templateCache) {
             $scope.method = 'JSONP';
             //$scope.url = 'http://www.survivalhomesteading.com/api/get-phones.php?action=get_device_list_short_info&callback=JSON_CALLBACK';
