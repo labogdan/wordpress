@@ -1,22 +1,25 @@
 
 angular.module('nzVoice')
-    .controller('ShowAllDevices', ShowAllDevices);
+	.constant('dataUrl', {
+		host : 'http://www.qa5.netzero.net/start/',
+		params : '&rtype=jsonp&callback=JSON_CALLBACK'
+	})
+    .controller('ShowAllDevices', ShowAllDevices)
+	.controller('ShowFDPlans', ShowFDPlans);
+	
+ShowAllDevices.$inject = ['$scope', '$http', '$templateCache', 'fetchdata', 'dataUrl'];
 
-ShowAllDevices.$inject = ['$scope', '$http', '$templateCache', 'fetchdata'];
-
-function ShowAllDevices ($scope, $http, $templateCache, fetchdata) {
+function ShowAllDevices ($scope, $http, $templateCache, fetchdata, dataUrl) {
     	
 	var vm = this;
 	
-    vm.method = 'JSONP';
-    vm.url = 'http://www.qa5.netzero.net/start/showPocDevices.do?wls_rsf=1&wls_poc=hs&wls_pid=2&rtype=jsonp&callback=JSON_CALLBACK';
-    
+    vm.url = dataUrl.host + 'showPocDevices.do?wls_rsf=1&wls_poc=hs&wls_pid=2' + dataUrl.params;
     vm.loading = true;
-    
-//    console.log(fetchdata.fetch(vm.url));
-    
+        
     fetchdata.fetch(vm.url).then(function(response) {
     	vm.data = response.data;
+    	vm.loading = false;
+    	console.log(vm.data)
     });
     
     vm.quantity = 1;
@@ -24,21 +27,20 @@ function ShowAllDevices ($scope, $http, $templateCache, fetchdata) {
     vm.deviceName = 'Apple iPhone';
     vm.planName = 'Plus plan';
         
-        
-    vm.fetch = function() {
-    	vm.code = null;
-    	vm.response = null;
- 
-        $http({method: vm.method, url: vm.url, cache: $templateCache}).
-            success(function(data, status) {
-            	vm.status = status;
-            	vm.data = data;
-                vm.loading = false;
-        }).
-            error(function(data, status) {
-            	vm.data = data || "Request failed";
-    	vm.status = status;
-            });
-    };
-    //vm.fetch();
+};
+
+ShowFDPlans.$inject = ['$scope', '$http', '$templateCache', 'fetchdata', 'dataUrl'];
+
+function ShowFDPlans ($scope, $http, $templateCache, fetchdata, dataUrl) {
+	
+	var vm = this;
+	
+	vm.url = dataUrl.host + 'showPlans.do?wls_did=nz-wls-hs-sp-device-01' + dataUrl.params;
+	vm.loading = true;
+	
+	fetchdata.fetch(vm.url).then(function(response) {
+    	vm.data = response.data;
+    	vm.loading = false;
+    	console.log(vm.data)
+    });
 };

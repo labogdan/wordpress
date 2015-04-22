@@ -390,14 +390,13 @@ a:focus, a:hover {
     <div><p class="text-center"><img src="/wp-includes/images/NetZero/down-point2e2925.png" /></p></div>              
 </div>
  
-
 		<div class="row" ng-repeat="devices in ShowAllDevices.data" ng-show="$index === 0">
 			
 			<div class="col-md-offset-2 col-md-9">
 				<div class="row">
 					<div class="col-md-5 margin-small" ng-repeat-start="device in devices | orderBy: 'displayOrder'" style="margin-bottom: 70px;">
 						<div class="row">
-							<div class="col-xs-4"><img ng-src='{{device.offerId.length?"/wp-includes/images/NetZero/"+device.offerId+".png":"/wp-includes/images/NetZero/iphone.png"}}' class='m-top-10 img-responsive'>{{device.offerId}}</div>
+							<div class="col-xs-4"><img ng-src='{{device.offerId.length?"/wp-includes/images/NetZero/"+device.offerId+".png":"/wp-includes/images/NetZero/iphone.png"}}' class='m-top-10 img-responsive'></div>
 							<div class="col-xs-8">
 								<div class="deviceName" ng-bind-html="device.shortName | to_trusted"></div>
 								
@@ -426,7 +425,7 @@ a:focus, a:hover {
 		</div>
 
 
- 
+ </div> <!-- /controller -->
 <div class="row mTop50">
     <div id="textbar2" class="white mTop50">
        <div class=""><h1 class="text-center">ALREADY HAVE THE PERFECT DEVICE?</h1></div>
@@ -443,19 +442,20 @@ a:focus, a:hover {
 </div>
  
 <!-- Plans Row -->
-<div class="row">   
-       <div id="planscontainer" class="text-center col-md-offset-1">
-              <div class="row">
-                     <div class="col-md-3" id="plansbox1">
-                            <div class="planboxtop vcenter"><h2>BASIC</h2></div>
+<div class="row" ng-controller="ShowFDPlans as ShowFDPlans">   
+       <div id="planscontainer" class="text-center col-md-offset-1" >
+              <div>{{ShowFDPlans.data}}</div>
+              <div class="row" ng-repeat="offers in ShowFDPlans.data">
+                     <div class="col-md-3" ng-repeat="offer in offers">
+                            <div class="planboxtop vcenter"><h2>{{offer.productName}}</h2></div>
                            <div class="height288 text-center">
                                   <div class="unlmtd">UNLIMITED</div>
                                   <div><h6>minutes, text messages, and data</h6></div>                
-                                  <div id="peachprice" class="ff6a4d">$25</div>
+                                  <div id="peachprice" class="ff6a4d">${{offer.price}}</div>
                             </div>
                             <div id="addtocartbox" class="text-center">ADD TO CART</div>
                      </div>
-                     <div class="col-md-3" id="plansbox2">
+<!--                     <div class="col-md-3" id="plansbox2">
                             <div class="planboxtop vcenter"><h2>PRO</h2></div>
                            <div class="planboxmiddle height288 text-center">
                                   <div class="unlmtd">UNLIMITED</div>
@@ -481,7 +481,7 @@ a:focus, a:hover {
                                   <div id="peachprice" class="ff6a4d">$8</div>
                             </div>
                             <div id="addtocartbox" class="text-center">ADD TO CART</div>
-                     </div> 
+                     </div> -->
               </div>
        </div>
        <!-- End of Plans Row -->
@@ -703,26 +703,7 @@ a:focus, a:hover {
 
 
 
-              
-        <hr />
-              
-              <div style="height:25px; overflow: hidden;" onclick="$(this).css('height','auto');">
-              <pre>http status code: {{status}}</pre>
-                <pre>http response data: {{data}}</pre>
-              
-
-		<hr />
-			
-			
-			 <ol ng-repeat="devices in data">
-              	<li ng-repeat="device in devices">
-              		<ul>
-              			<div ng-repeat="attr in device">{{attr}}</div>
-              		</ul>
-              	</li>
-              </ol>
-             </div> 
-	</div> <!-- /controller -->
+	 <!-- /controller -->
              
        
 </div> <!-- /app -->
