@@ -1,6 +1,10 @@
-angular.module('frontDoor.filters', [])
-    .filter('to_trusted', ['$sce', function ($sce){
+angular.module('nzVoice')
+    .filter('to_trusted', to_trusted);
+
+to_trusted.$inject = ['$sce'];
+
+function to_trusted($sce) {
         return function (text) {
             return $sce.trustAsHtml(text);
     };
-}]);
+};

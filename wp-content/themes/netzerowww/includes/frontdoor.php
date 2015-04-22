@@ -260,6 +260,13 @@ a:focus, a:hover {
 		height : 40px;
 	}
 	
+	#shoppingCart {
+		width : 300px;
+		margin-top : 20px;
+		left : -230px;
+		padding : 20px;
+	}
+	
 	#shoppingCart .summary {
 		color : #c14d00;
 		text-transform : uppercase;
@@ -270,14 +277,36 @@ a:focus, a:hover {
 		color : #808080;
 	}
 	
+	#shoppingCart .no-bg {
+		height : 0px;
+	}
+	
+	.arrow {
+		width : 30px;
+		height : 30px;
+		position : relative;
+		top : -35px;
+		left : 220px;
+		background : white;
+		-ms-transform: rotate(45deg);
+ 		-webkit-transform: rotate(45deg);
+		transform: rotate(45deg);
+	}
+	
+	#shoppingCart div[class^='row'] {
+		border-bottom : 2px #efefef solid;
+		margin-bottom : 10px;
+		padding-bottom : 10px;
+	}
+	
 	
 </style>
 
-<div data-ng-app="frontDoor">
+<div data-ng-app="nzVoice">
 
-	<div ng-controller="showAllDevices as showAllDevices">
+	<div ng-controller="ShowAllDevices as ShowAllDevices">
                 
-		<div>{{showAllDevices.loading == false? 'all data loaded!':'loading...'}}</div>
+		<div>{{ShowAllDevices.loading == false? 'all data loaded!':'loading...'}}</div>
                 	
 
 
@@ -294,18 +323,23 @@ a:focus, a:hover {
                   <li><a href="#">ACCOUNT</a></li>
                   <li><a href="#">SUPPORT</a></li>
                   <li><a href="#" data-toggle="dropdown"><span id="cartIco" class="glyphicon glyphicon-shopping-cart 5adbc8"></span></a>
-                  	<div id="shoppingCart" class="dropdown-menu" style="width : 300px;left : -200px;padding : 20px;">
-        				
-        				<div class="summary">SUMMARY</div>
-        				<hr />
-        				<div class="fleft">
-        					<div class="fLeft">{{showAllDevices.deviceName}}</div><div class="fLeft">{{showAllDevices.quantity}}</div><div class="fLeft">{{showAllDevices.price}}</div>
+                  	<div id="shoppingCart" class="dropdown-menu">
+        				<div class="no-bg">
+        					<div class="arrow"></div>
         				</div>
-        				<hr />
-        				<div class="fleft">
-        					<div class="fLeft">{{showAllDevices.planName}}</div><div class="fLeft">{{showAllDevices.quantity}}</div><div class="fLeft">{{showAllDevices.price}}</div>
+        				<div class="row">
+        				<div class="col-xs-12 summary">SUMMARY</div>	
         				</div>
-        				<hr />
+        				<div class="row">
+        					<div class="col-xs-7">{{ShowAllDevices.deviceName}}</div>
+        					<div class="col-xs-1">x{{ShowAllDevices.quantity}}</div>
+        					<div class="col-xs-3">${{ShowAllDevices.price}}</div>
+        				</div>
+        				<div class="row">
+        					<div class="col-xs-7">{{ShowAllDevices.planName}}</div>
+        					<div class="col-xs-1">x{{ShowAllDevices.quantity}}</div>
+        					<div class="col-xs-3">${{ShowAllDevices.price}}</div>
+        				</div>
         				<button class="btn btn-info btn-block">VIEW CART</button>
         				<button class="btn btn-primary btn-block">CHECKOUT</button>
     				</div>
@@ -360,7 +394,7 @@ a:focus, a:hover {
 </div>
  
 
-		<div class="row" ng-repeat="devices in showAllDevices.data" ng-show="$index === 0">
+		<div class="row" ng-repeat="devices in ShowAllDevices.data" ng-show="$index === 0">
 			
 			<div class="col-md-offset-2 col-md-9">
 				<div class="row">
