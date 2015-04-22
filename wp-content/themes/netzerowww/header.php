@@ -15,6 +15,13 @@
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/angular.min.js"></script>
+
+<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/nzApp/nzApp.js"></script>
+<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/nzApp/nzApp.frontDoor.services.js"></script>
+<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/nzApp/nzApp.frontDoor.controllers.js"></script>
+<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/nzApp/nzApp.frontDoor.filters.js"></script>
+
+
 <?php wp_head(); ?>
 </head>
 
