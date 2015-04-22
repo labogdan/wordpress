@@ -2,9 +2,9 @@
 angular.module('nzVoice')
     .controller('ShowAllDevices', ShowAllDevices);
 
-ShowAllDevices.$inject = ['$scope', '$http', '$templateCache'];
+ShowAllDevices.$inject = ['$scope', '$http', '$templateCache', 'fetchdata'];
 
-function ShowAllDevices ($scope, $http, $templateCache) {
+function ShowAllDevices ($scope, $http, $templateCache, fetchdata) {
     	
 	var vm = this;
 	
@@ -13,10 +13,12 @@ function ShowAllDevices ($scope, $http, $templateCache) {
     
     vm.loading = true;
     
-/*            fetchData.fetch(vm.url, $templateCache).then(function(res) {
-            	
-            });
-*/            
+//    console.log(fetchdata.fetch(vm.url));
+    
+    fetchdata.fetch(vm.url).then(function(response) {
+    	vm.data = response.data;
+    });
+    
     vm.quantity = 1;
     vm.price = 24.99;
     vm.deviceName = 'Apple iPhone';
@@ -38,5 +40,5 @@ function ShowAllDevices ($scope, $http, $templateCache) {
     	vm.status = status;
             });
     };
-    vm.fetch();
+    //vm.fetch();
 };

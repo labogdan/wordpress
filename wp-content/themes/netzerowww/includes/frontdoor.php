@@ -137,23 +137,20 @@ a:focus, a:hover {
 }
 #innerleft    {
        padding-right:20px;
-       width:400px;
        display:block;
        height:100%;
 }     
 #innerright   {
        margin-right:20px;
-       width:600px;
        display:block;
 }
 .planboxmiddle       {
-       width: 270px;
        border-left: 2px solid #c24d01;
        border-right: 2px solid #c24d01;
 }
 .planboxtop   {
        height:72px;
-       width:270px;
+       width:100%;
        background-color:#2e2925;
        text-align:center;
        color:#fff;
@@ -163,7 +160,7 @@ a:focus, a:hover {
        height:70px;
        background-color:#c24d01;
        border-radius: 0px 0px 5px 5px;
-       width:270px;
+       width:100%;
        color: #fff;
        font-wight:bold;
        font-size:18px;
