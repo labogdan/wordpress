@@ -128,7 +128,7 @@ add_filter( 'the_title', 'wptexturize'   );
 add_filter( 'the_title', 'convert_chars' );
 add_filter( 'the_title', 'trim'          );
 
-//add_filter( 'the_content', 'wptexturize'        );
+add_filter( 'the_content', 'wptexturize'        );
 add_filter( 'the_content', 'convert_smilies'    );
 add_filter( 'the_content', 'convert_chars'      );
 add_filter( 'the_content', 'wpautop'            );

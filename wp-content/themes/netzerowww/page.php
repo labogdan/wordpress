@@ -18,11 +18,12 @@ get_header(); ?>
 
 <?php
 
-//include 'includes/frontdoor.php';
+include 'includes/frontdoor.php';
 
 ?>			
 			
 			
+<?php /*
 			<?php while ( have_posts() ) : the_post(); ?>
 
 				<?php get_template_part( 'content', 'page' ); ?>
@@ -36,6 +37,7 @@ get_header(); ?>
 				?>
 
 			<?php endwhile; // end of the loop. ?>
+*/?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

@@ -1,7 +1,3 @@
-<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/nzApp/nzApp.js"></script>
-<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/nzApp/nzApp.frontDoor.services.js"></script>
-<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/nzApp/nzApp.frontDoor.controllers.js"></script>
-<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/nzApp/nzApp.frontDoor.filters.js"></script>
 
 
 <style>
@@ -14,9 +10,19 @@ a:focus, a:hover {
 .white {
        color:#fff;
 }
+.red {
+	color : #99381f;
+}
+.black {
+	color : #000000;
+}
 .height288    {
        height:288px;
 }
+.height188    {
+       height:188px;
+}
+
 .height400    {
        height:400px;
 }
@@ -60,7 +66,7 @@ a:focus, a:hover {
        padding-top:60px;
 }
 #peachprice   {
-       padding-top:60px;
+       padding-top:10px;
        font-wight:bold;
        font-size: 44px;
       
@@ -102,6 +108,11 @@ a:focus, a:hover {
        font-wight:bold;
        font-size:1.286em;  
        padding-top:70px;
+}
+.limited       {
+       font-wight:bold;
+       font-size:1.286em;  
+       padding-top:10px;
 }
 .faq   {
        font-size:2.929em;
@@ -427,9 +438,10 @@ a:focus, a:hover {
 
  </div> <!-- /controller -->
 <div class="row mTop50">
-    <div id="textbar2" class="white mTop50">
-       <div class=""><h1 class="text-center">ALREADY HAVE THE PERFECT DEVICE?</h1></div>
-       <div><p class="text-center small">We can port your current phone to service in a snap!</p></div>
+    <div id="textbar2" class="white mTop50 col-xs-12">
+       <div class="mTop50"><h1 class="text-center red">ALREADY HAVE THE PERFECT DEVICE?</h1></div>
+       <div><p class="text-center small black">We can port your current phone to service in a snap!</p></div>
+    	<div class="col-xs-2 col-xs-offset-5 mTop50"><button class="btn btn-primary btn-block">get started</button></div>
     </div>          
 </div>
       
@@ -449,9 +461,25 @@ a:focus, a:hover {
                      <div class="col-md-3" ng-repeat="offer in offers">
                             <div class="planboxtop vcenter"><h2>{{offer.productName}}</h2></div>
                            <div class="height288 text-center">
-                                  <div class="unlmtd">UNLIMITED</div>
-                                  <div><h6>minutes, text messages, and data</h6></div>                
-                                  <div id="peachprice" class="ff6a4d">${{offer.price}}</div>
+                           		<div class="height188">
+                                  <div ng-if="offer.voiceAmount != 'unlimited' && offer.voiceAmount != 'UNLIMITED'">
+                                  <div class="limited">{{offer.voiceAmount}}</div>
+                                  <div><h6>voice minutes</h6></div>
+                                  </div>
+                                  <div ng-if="offer.textSize != 'unlimited' && offer.textSize != 'UNLIMITED'">
+                                  <div class="limited">{{offer.textSize}}</div>
+                                  <div><h6>text messages</h6></div>
+                                  </div>
+                                  <div ng-if="offer.dataSize.indexOf('UNLIMITED') == -1">
+                                  <div class="limited" ng-bind-html="offer.dataSize | to_trusted"></div>
+                                  <div><h6>MB of data</h6></div>
+                                  </div>
+                                  <div ng-if="(offer.voiceAmount == 'unlimited' || offer.voiceAmount == 'UNLIMITED') && (offer.textSize == 'unlimited' || offer.textSize == 'UNLIMITED') && (offer.dataSize.indexOf('UNLIMITED') != -1)">
+                                  	<div class="unlmtd">UNLIMITED</div>
+                                  	<div><h6>talk, text, data</h6></div>
+                                  </div>
+                                </div>
+                                <div id="peachprice" class="ff6a4d">${{offer.price}}</div>
                             </div>
                             <div id="addtocartbox" class="text-center">ADD TO CART</div>
                      </div>
