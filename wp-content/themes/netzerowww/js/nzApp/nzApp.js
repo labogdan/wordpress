@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('nzVoice', []);
+angular.module('nzVoice', ['ngRoute']);

@@ -307,6 +307,24 @@ a:focus, a:hover {
 		padding-bottom : 10px;
 	}
 	
+	.learnMore {
+		color : #ff8f12;
+		margin-left : 1em;
+	}
+	
+	.color-ff8f12 {
+		color : #ff8f12;
+	}
+	
+	.pull-top {
+		margin-top:-30px;
+		height : 30px;
+		background : #ff8f12;
+		color : white;
+		line-height : 2em;
+		text-transform : uppercase;
+		border-radius : 5px 5px 0px 0px;
+	}
 	
 </style>
 
@@ -421,8 +439,8 @@ a:focus, a:hover {
 								</div>
 								<br clear="all"/>
 								<div class="buttonWrapper">
-									<button type="button" class="btn btn-primary">add to cart</button>
-									Learn More >
+									<button type="button" class="btn btn-primary pull-left" ng-click="addToCart(device.offerId)">add to cart</button>
+									<div class="learnMore pull-left" ng-click="learnMore(device.offerId)">Learn More <span class="glyphicon glyphicon-menu-right color-ff8f12"></span></div>
 								</div>
 								 
 							</div>
@@ -456,11 +474,14 @@ a:focus, a:hover {
 <!-- Plans Row -->
 <div class="row" ng-controller="ShowFDPlans as ShowFDPlans">   
        <div id="planscontainer" class="text-center col-md-offset-1" >
-              <div>{{ShowFDPlans.data}}</div>
+              
               <div class="row" ng-repeat="offers in ShowFDPlans.data">
                      <div class="col-md-3" ng-repeat="offer in offers">
+                     	<div class="row" ng-if="offer.offerId === 'nz-wls-hs-sp-pro-39-95-unlimitted'">
+                     		<div class="pull-top col-xs-6 col-xs-offset-3">most popular!</div>
+                     	</div>
                             <div class="planboxtop vcenter"><h2>{{offer.productName}}</h2></div>
-                           <div class="height288 text-center">
+                           <div class="height288 text-center" ng-class="{planboxmiddle: offer.offerId === 'nz-wls-hs-sp-pro-39-95-unlimitted'}">
                            		<div class="height188">
                                   <div ng-if="offer.voiceAmount != 'unlimited' && offer.voiceAmount != 'UNLIMITED'">
                                   <div class="limited">{{offer.voiceAmount}}</div>
@@ -479,37 +500,10 @@ a:focus, a:hover {
                                   	<div><h6>talk, text, data</h6></div>
                                   </div>
                                 </div>
-                                <div id="peachprice" class="ff6a4d">${{offer.price}}</div>
+                                <div id="peachprice" class="ff6a4d" ng-bind="offer.price | style_price"></div>
                             </div>
                             <div id="addtocartbox" class="text-center">ADD TO CART</div>
                      </div>
-<!--                     <div class="col-md-3" id="plansbox2">
-                            <div class="planboxtop vcenter"><h2>PRO</h2></div>
-                           <div class="planboxmiddle height288 text-center">
-                                  <div class="unlmtd">UNLIMITED</div>
-                                  <div><h6>minutes, text messages, and data</h6></div>                
-                                  <div id="peachprice" class="ff6a4d">$40</div>
-                            </div>
-                            <div id="addtocartbox" class="text-center">ADD TO CART</div>
-                     </div>
-                     <div class="col-md-3" id="plansbox3">
-                            <div class="planboxtop vcenter"><h2>PLATINUM</h2></div>
-                           <div class=" height288 text-center">
-                                  <div class="unlmtd">UNLIMITED</div>
-                                  <div><h6>minutes, text messages, and data</h6></div>                
-                                  <div id="peachprice" class="ff6a4d">$55</div>
-                            </div>
-                            <div id="addtocartbox" class="text-center">ADD TO CART</div>
-                     </div>              
-                     <div class="col-md-3" id="plansbox4">
-                            <div class="planboxtop vcenter"><h2>TALK + TEXT</h2></div>
-                           <div class="height288 text-center">
-                                  <div class="unlmtd">UNLIMITED</div>
-                                  <div><h6>minutes, text messages, and data</h6></div>                
-                                  <div id="peachprice" class="ff6a4d">$8</div>
-                            </div>
-                            <div id="addtocartbox" class="text-center">ADD TO CART</div>
-                     </div> -->
               </div>
        </div>
        <!-- End of Plans Row -->
