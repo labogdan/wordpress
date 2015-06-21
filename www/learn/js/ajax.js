@@ -25,8 +25,11 @@ UpdateView.prototype.update = function (res) {
 	this.rowCount ++;
 };
 
-UpdateView.prototype.deleteRow = function (rowId) {
-	$("#" + rowId).remove();
+UpdateView.prototype.deleteRow = function (rowId, cb) {
+	$("#" + rowId).hide("medium", function () {
+		$(this).remove();
+		if (typeof cb === 'function') { cb() }
+	});
 }
 
 UpdateView.prototype.listenToRows = function () {
