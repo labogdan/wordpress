@@ -27,13 +27,14 @@ angular.module('nzVoice')
 		return oPublic;
 		
 		function process(response) {
-			console.log('response received: ' + response.data.devices.class);
-			
-			if (response.data.devices.class.indexOf('DeviceDetailView') != -1) {
-				$window.location.href = "http://info.int.untd.com:8080/nzblog/device-info-page?wls-did=" + response.data.devices.offerId; //TODO: link up to relative url
-			} else if (response.data.devices.class.indexOf('addDevice') != -1) {
-				$window.location.href = "http://info.int.untd.com:8080/nzblog/netzero-plans?wls-did=" + response.data.devices.offerId; //TODO: link up to relative url
+			if (response.data.cartDetails) {
+				console.log('add to cart now');
+				$window.location.href = "http://info.int.untd.com:8080/nzblog/netzero-plans?wls-did=" + response.data.cartDetails.offerViews[0].offerId;
+			} else {
+				console.log('dont add to cart, just view device');
+				$window.location.href = "http://info.int.untd.com:8080/nzblog/device-info-page?wls-did=" + response.data.devices.offerId;
 			}
+			console.log(response.data);
 			return response;
 		};
 	}

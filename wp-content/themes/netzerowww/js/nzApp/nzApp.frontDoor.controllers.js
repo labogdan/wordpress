@@ -28,7 +28,7 @@ function ShowAllDevices ($scope, $http, $templateCache, fetchData, dataUrl, proc
 	var vm = this;
 	
     vm.geturl = dataUrl.host + 'showPocDevices.do?wls_rsf=1&wls_poc=hs&wls_pid=2&' + dataUrl.params;
-    vm.addurl = "http://www.familyhomesteading.com/api/get-phones.php?action=select_device_ok&callback=JSON_CALLBACK";
+    vm.addurl = dataUrl.host + "addCartItem.do?token=XXXXXX&wls_oid=nz-wls-hs-sp-device-03&" + dataUrl.params;
     vm.sendurl = dataUrl.host + 'showDevice.do?' + dataUrl.params;
     vm.loading = true;
         
