@@ -74,18 +74,17 @@ describe("UpdateView() class", function () {
 			myClass.deleteRow("row-1", function () {
 				done();
 			});
-			
-		})
+		});
 		it("should delete a row with a specified id", function (done) {
 			expect($("#row-1")).not.toExist();
 			done();
-		})
+		});
 	});
 	
 	describe("init()", function () {
 		it("should call listenToRows()", function () {
 			expect($("#user-table1")).toHandle("click");
-		})
+		});
 	});
 
 	describe("listenToRows() method", function () {

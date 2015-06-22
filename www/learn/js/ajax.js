@@ -6,7 +6,7 @@ function UpdateView() {
 
 UpdateView.prototype.init = function () {
 	this.listenToRows();
-}
+};
 
 UpdateView.prototype.getData = function () {
 	var self = this;
@@ -30,11 +30,11 @@ UpdateView.prototype.deleteRow = function (rowId, cb) {
 		$(this).remove();
 		if (typeof cb === 'function') { cb() }
 	});
-}
+};
 
 UpdateView.prototype.listenToRows = function () {
 	var self = this;
 	$("#user-table1").on("click", function (event) {
 		self.deleteRow(event.target.id);
 	});
-}
+};
