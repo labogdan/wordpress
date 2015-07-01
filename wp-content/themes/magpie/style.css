@@ -1,0 +1,290 @@
+a      {
+       color:#fff;
+}
+a:focus, a:hover {
+    color: #ff8f12;
+}
+.white {
+       color:#fff;
+}
+.height288    {
+       height:288px;
+}
+.height400    {
+       height:400px;
+}
+.width1175    {
+       width:1175px;
+}
+.font12White{font-size:12px;font-family : nexa_bookregular;font-weight:normal !important;color:#ffffff !important;text-decoration:none;}
+ 
+#v2navbar     {
+       padding-top:40px;
+       background-color:#242121;
+       border-radius: 0 !important;
+       -moz-border-radius: 0 !important;
+}
+#small-topnav.navbar {
+       margin-bottom: 0px;
+}
+#textbar1     {
+       background-color:#2e2925;
+       height:200px;
+       padding-top:30px;
+}
+#textbar2     {
+       background-image: url("/wp-includes/images/magpie/byod_bkgrnd.jpg");
+       height:360px;
+       padding-top:30px;
+}
+#emailDiv     {
+       background-image: url("/wp-includes/images/magpie/email_bkgrnd.jpg");
+       height:320px;
+       margin-top:30px;
+}
+#EmailSubmit  {
+       margin-top: -52px;
+}
+#mapDiv       {
+       background-image: url("/wp-includes/images/magpie/map-drop.jpg");
+       height:320px;
+}
+#MoreTime     {
+       padding-top:60px;
+}
+#peachprice   {
+       padding-top:60px;
+       font-wight:bold;
+       font-size: 44px;
+      
+}
+.glyphicon {
+    font-size: 34px;
+    color:#ff8f12;
+    margin-bottom: 5px;
+    margin-top: 8px;
+}
+.glyphicon-menu-right      {
+       font-size: 16px;
+       color:#5adbc8;
+}
+.fLeft {
+  float:left;
+}
+.fRight {
+  float : right;
+}
+.5adbc8       {
+       background-color:#5adbc8;
+}
+.ff6a4d       {
+       color:#ff6a4d;
+}
+.41424a       {
+       background-color:#41424a;
+}
+.ff8f12       {
+       color:#ff8f12;
+}
+#cartIco{
+	margin : 0px;
+	line-height:0.5;
+}
+
+.unlmtd       {
+       font-wight:bold;
+       font-size:1.286em;  
+       padding-top:70px;
+}
+.faq   {
+       font-size:2.929em;
+       color:#cc5400;
+}
+.faqbold      {
+       font-size:1.143em;
+       font-weight:bold;
+}
+.faqhiddencopy      {
+       padding-left:20px;
+}
+.learnbtn-info {
+       background-image: linear-gradient(to bottom, #5adbc8 0px, #5adbc8 100%);
+       background-repeat: repeat-x;
+       color: #fff;
+}   
+.mTop50       {
+       margin-top:50px;
+       }
+#planscontainer      {
+       margin-top:45px;
+}     
+#plansbox1, #plansbox2, #plansbox3, #plansbox4  {
+       float:left;  
+       padding:15px;
+}     
+#plansbox2    {
+       height: 430px;
+}
+#plansbox1    {
+       margin-left: -10px;
+}
+#innerleft    {
+       padding-right:20px;
+       display:block;
+       height:100%;
+}     
+#innerright   {
+       margin-right:20px;
+       display:block;
+}
+.planboxmiddle       {
+       border-left: 2px solid #c24d01;
+       border-right: 2px solid #c24d01;
+}
+.planboxtop   {
+       height:72px;
+       width:100%;
+       background-color:#2e2925;
+       text-align:center;
+       color:#fff;
+       padding-top:5px;
+}     
+#addtocartbox {
+       height:70px;
+       background-color:#c24d01;
+       border-radius: 0px 0px 5px 5px;
+       width:100%;
+       color: #fff;
+       font-wight:bold;
+       font-size:18px;
+       padding-top:25px;
+}
+.godiv, .submitdiv   {
+       color: #fff;
+       font-weight:bold;
+       border-radius: 0px 5px 5px 0px;
+       background-color:#ff9016;
+       font-size: 24px;
+}
+.submitdiv    {
+       font-size: 18px;
+}
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+#frame2       {
+       height:500px;
+}
+#accordion.paneldesign {
+     border: none;
+}
+ 
+.panel, .paneldesign, .panel-group .panel-heading+.panel-collapse>.panel-body{
+    border: none;
+}
+.paneldesign  {
+       width:460px;
+       background-color:#ffffff; 
+       border: 0px;
+}
+ 
+.paneldesign-default > .paneldesign-heading {
+       color: #41424a;
+}
+.panel-body   {
+       border: 0px;
+}
+#left-accordian      {
+       //height:500px;
+}
+#social       {
+       vertical-align:text-bottom;
+       padding-top:120px;
+}
+
+	.deviceName {
+		font-weight : bold;
+		font-size : 1.5rem;
+		text-transform: uppercase;
+		margin-top : 20px;
+	}
+	
+	.deviceText {
+		font-size : 1.2rem;
+		margin-top : 10px;
+	}
+	
+	.specialPrice {
+		color : #ff8f12;
+		font-size : 2.2rem;
+	}
+	
+	.originalPrice {
+	}
+	
+	.devicePrice {
+		margin-top : 30px;
+	}
+	
+	.buttonWrapper {
+		margin-top : 20px;
+	}
+
+	.fleft {
+		float : left;
+	}
+	
+	.btn-primary {
+		background : #c14d00;
+		text-transform: uppercase;
+		border : none;
+		height : 40px;
+	}
+	
+	.btn-info {
+		background : #808080;
+		text-transform: uppercase;
+		border : none;
+		height : 40px;
+	}
+	
+	#shoppingCart {
+		width : 300px;
+		margin-top : 20px;
+		left : -230px;
+		padding : 20px;
+	}
+	
+	#shoppingCart .summary {
+		color : #c14d00;
+		text-transform : uppercase;
+		font-size : 2rem;
+	}
+	
+	#shoppingCart div {
+		color : #808080;
+	}
+	
+	#shoppingCart .no-bg {
+		height : 0px;
+	}
+	
+	.arrow {
+		width : 30px;
+		height : 30px;
+		position : relative;
+		top : -35px;
+		left : 220px;
+		background : white;
+		-ms-transform: rotate(45deg);
+ 		-webkit-transform: rotate(45deg);
+		transform: rotate(45deg);
+	}
+	
+	#shoppingCart div[class^='row'] {
+		border-bottom : 2px #efefef solid;
+		margin-bottom : 10px;
+		padding-bottom : 10px;
+	}
