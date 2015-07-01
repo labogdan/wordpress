@@ -4,11 +4,134 @@
 	<head>
 		<title>Page for learning HTML / CSS / JS</title>
 		
+		<style>
+			ul li {
+				list-style-type : none;
+			}
+		</style>
+		
+		<script src="http://sinonjs.org/releases/sinon-server-1.15.0.js"></script>
+		<script src="lib/jquery/dist/jquery.min.js"></script>
+		
+		<script>
+			function UserName(id) {
+				
+				this.pending = false;
+				
+				var obj = document.getElementById("userNames"),
+					elem = document.createElement("div");
+					text = document.createTextNode(this.pending);
+				
+				obj.addEventListener("click", function (event) {
+					this.delete(event.target);
+				}.bind(this));
+				
+				elem.id="pending";
+				elem.appendChild(text);
+				obj.insertBefore(elem,obj.firstChild);
+			}
+			UserName.prototype.add = function (name) {
+				
+				document.querySelector("ul").appendChild(this.template(name));
+			};
+			
+			UserName.prototype.template = function (name) {
+				var template = document.createDocumentFragment(),
+					contents = template.appendChild(document.createElement("li"));
+					contents = contents.appendChild(document.createElement("div"));
+					contents.appendChild(document.createTextNode("Name: " + name));
+					
+				return template;				
+			};
+			
+			UserName.prototype.delete = function (obj) {
+				this.togglePending();
+				$(obj).animate({
+					opacity : 0,
+					height : 0
+				},1000,function () {
+					obj.parentNode.removeChild(obj);
+					this.togglePending();
+				}.bind(this));
+			};
+			
+			UserName.prototype.togglePending = function () {
+				this.pending = (this.pending === true ? false : true);
+				document.getElementById("pending").innerHTML = this.pending;
+			};
+						
+			function NameForm() {
+				this.listeners = [];
+				this.server = sinon.fakeServer.create();
+				this.server.respondWith("GET", "http://url.to.mock.com",
+				[200, {"Content-Type" : "application/json"},
+				 '{"name": "Andy", "isActive" : true }']);
+
+				
+			};
+			
+			NameForm.prototype.listen = function (field, variable) {
+				
+				// still need to link up variable that updateView() will update
+				
+				var self = this;
+				
+				if ($("#" + field).length === 0) { return false; }
+				var $field = $("#" + field);			
+				this.listeners.push($field.attr('id'));
+				
+				$field.on('keyup', function () {
+					self.listeners[$(this).attr('id')] = $(this).val();
+					console.log($(this).attr('id'));
+					console.log(self.listeners);
+					self.updateView();
+				});				
+			};
+			
+			NameForm.prototype.updateView = function (element) {
+				// need to update element from variable stored
+			};
+			
+			NameForm.prototype.ajax = function () {
+				
+				
+				
+				$.ajax({
+					url : 'http://url.to.mock.com',
+					success : function (response) {
+						console.log(response);
+					}
+				});
+				this.server.respond();
+			};
+			
+		</script>
+		
 	</head>
 	
 	<body>
 		
+		<div id="">
+			<label for="firstName">First Name: </label>
+			<input type="text" name="firstName" id="firstName">
+		</div>
 		
+		<div id="userNames">
+			<ul>
+				
+			</ul>
+			
+		</div>
+		<script>
+			var user = new UserName();
+			user.add('Persone1');
+			user.add('Persone2');
+			user.add('Persone3');
+			user.add('Persone4');
+			
+			var firstName = new NameForm();
+			firstName.listen('firstName');
+		</script>
 	</body>
 	
 </html>
